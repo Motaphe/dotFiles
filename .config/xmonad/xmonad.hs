@@ -17,9 +17,10 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.Gaps
 
---Utilities
+-- Utilities
 import XMonad.Util.Paste
 import XMonad.Util.SpawnOnce
+
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -277,7 +278,9 @@ myEventHook = swallowEventHook (className =? "Alacritty") (return True)
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook = return ()
-
+--
+--
+--
 ------------------------------------------------------------------------
 -- Startup hook
 
@@ -303,7 +306,7 @@ main = defaults
 -- No need to modify this.
 --
 defaults = do
-        xmonad $ docks $ ewmh $ def {
+        xmonad $ ewmh $ def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,

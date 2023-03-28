@@ -55,7 +55,7 @@ EDP_OUTPUT=$(xrandr | grep "eDP*" | awk '{print $1}')
 
 # Set multi display configuration if HDMI is detected
 if [ ! -z "$HDMI_OUTPUT" ]; then
-	xrandr --output $HDMI_OUTPUT --mode 1920x1080 --rate 165 --primary --output $EDP_OUTPUT --mode 1920x1080 --rate 60 --left-of $HDMI_OUTPUT ; sleep 5
+	xrandr --output $HDMI_OUTPUT --mode 1920x1080 --rate 165 --primary --output $EDP_OUTPUT --mode 1920x1080 --rate 60 --left-of $HDMI_OUTPUT
 fi
 
 numlockx &
