@@ -82,18 +82,23 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch thunar
     , ((modm,               xK_a     ),spawn "thunar")
 
-    -- launch emacs
-    , ((modm,               xK_c     ),spawn "emacsclient -c -a nvim")
+    -- launch vscode
+    , ((modm,               xK_c     ),spawn "code")
 
     -- launch lockscreen
     , ((mod1Mask,               xK_l     ),spawn "i3lock -ut --image /home/suz/.config/xmonad/funny_win_lockscreen")
 
     -- launch flameshot
-    , ((0,                 xK_Print),spawn "flameshot gui")
+    , ((modm,               xK_s),spawn "flameshot gui")
 
-    -- decrease/increase volume
+    -- decrease/increase/mute volume
     , ((modm,               xK_Down),spawn "pactl set-sink-volume 0 -10%")
+    , ((0,               0x1008ff11),spawn "pactl set-sink-volume 0 -5%")
+
     , ((modm,               xK_Up),spawn"pactl set-sink-volume 0 +10%")
+    , ((0,               0x1008ff13),spawn"pactl set-sink-volume 0 +5%")
+
+    , ((0,               0x1008ff12),spawn"pactl set-sink-mute 0 toggle")
 
     -- decrease/increase brightness
     , ((mod1Mask,           xK_Down),spawn"brightnessctl set 10%-")
@@ -213,7 +218,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = gaps [(U,35), (D,10), (L,10), (R,10)] $ spacing gap $ Tall nmaster delta ratio
+     tiled   = gaps [(U,35), (D,8), (L,8), (R,8)] $ spacing gap $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -225,7 +230,7 @@ myLayout = tiled ||| Full
      delta   = 3/100
 
      -- Define the size of the gaps between windowsuuuuuuurr    
-     gap     = 10
+     gap     = 5
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -290,7 +295,8 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-        spawnOnce "~/.fehbg"
+        -- spawnOnce "~/.fehbg"
+        spawnOnce "nitrogen --restore"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

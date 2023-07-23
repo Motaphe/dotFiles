@@ -48,23 +48,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Detect HDMI and eDP output names
-HDMI_OUTPUT=$(xrandr | awk '/HDMI-.* connected/ {print $1}')
-EDP_OUTPUT=$(xrandr | grep "eDP*" | awk '{print $1}')
-
-
-# Set multi display configuration if HDMI is detected
-if [ ! -z "$HDMI_OUTPUT" ]; then
-	xrandr --output $HDMI_OUTPUT --mode 1920x1080 --rate 165 --primary --output $EDP_OUTPUT --mode 1920x1080 --rate 60 --left-of $HDMI_OUTPUT
-fi
-
+/home/suz/.screenlayout/monitor_layout.sh &
+exec xmonad &
+/usr/lib/polkit-kde-authentication-agent-1 &
 numlockx &
 /usr/bin/prime-offload &
-/usr/bin/emacs --daemon &
 picom -b --config ~/.config/picom/picom.conf &
 xsetroot -xcf /usr/share/icons/Catppuccin-Mocha-Peach-Cursors/cursors/left_ptr 16 &
-~/.config/polybar/launch.sh &
-nm-applet &
-exec xmonad
-
+/usr/bin/mpris-proxy &
+sleep 2 && ~/.config/polybar/launch.sh &
+nm-applet
 
