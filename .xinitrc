@@ -48,14 +48,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-/home/suz/.screenlayout/monitor_layout.sh &
-exec xmonad &
-/usr/lib/polkit-kde-authentication-agent-1 &
 numlockx &
-/usr/bin/prime-offload &
+flameshot &
+mpris-proxy &
 picom -b --config ~/.config/picom/picom.conf &
-xsetroot -xcf /usr/share/icons/Catppuccin-Mocha-Peach-Cursors/cursors/left_ptr 16 &
-/usr/bin/mpris-proxy &
-sleep 2 && ~/.config/polybar/launch.sh &
-nm-applet
-
+~/.config/polybar/launch.sh &
+nm-applet &
+nitrogen --restore &
+~/.screenlayout/fix_rr.sh &
+exec $HOME/.cache/xmonad/xmonad-x86_64-linux
