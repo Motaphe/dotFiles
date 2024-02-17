@@ -24,7 +24,7 @@ import XMonad.Util.SpawnOnce
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
-myTerminal      = "alacritty"
+myTerminal      = "kitty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -70,7 +70,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "rofi -show drun")
+    , ((mod1Mask,           xK_space     ), spawn "rofi -show drun")
 
     -- Custom Keybindings
     -- launch firefox
@@ -274,7 +274,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = swallowEventHook (className =? "Alacritty") (return True)
+myEventHook = swallowEventHook (className =? "Kitty") (return True)
 
 ------------------------------------------------------------------------
 -- Status bars and logging

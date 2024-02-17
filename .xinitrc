@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -48,12 +48,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+~/.screenlayout/multiMonitor.sh &
+sleep 3
 numlockx &
 flameshot &
 mpris-proxy &
-picom -b --config ~/.config/picom/picom.conf &
+# picom -b --config ~/.config/picom/picom.conf &
+picom &
+sleep 2
 ~/.config/polybar/launch.sh &
 nm-applet &
-nitrogen --restore &
-~/.screenlayout/fix_rr.sh &
 exec $HOME/.cache/xmonad/xmonad-x86_64-linux
