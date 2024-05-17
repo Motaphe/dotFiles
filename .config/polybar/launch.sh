@@ -1,12 +1,13 @@
 #!/bin/sh
 
 # For HWMON Path
-path1="/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
+path1="/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input"
+path2="/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
 
 if [[ -f $path1 ]]; then
     export HWMON_PATH="$path1"
-#elif [[ -f $path2 ]]; then
-#    export HWMON_PATH="$path2"
+elif [[ -f $path2 ]]; then
+    export HWMON_PATH="$path2"
 else
     echo "Error: Temperature file not found."
 fi
