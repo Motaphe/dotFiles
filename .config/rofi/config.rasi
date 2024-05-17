@@ -1,0 +1,6 @@
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+window {
+width: 500px;
+font: "Comic Sans 13";
+}
+

@@ -48,6 +48,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+/usr/bin/prime-offload &
 ~/.screenlayout/multiMonitor.sh &
 sleep 3
 numlockx &
