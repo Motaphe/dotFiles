@@ -21,7 +21,7 @@ To use these dotfiles, follow the steps below:
 
 ```bash
 git clone https://github.com/Motaphe/dotFiles.git
-cd dotFiles
+cd dotFiles/.config/
 ```
 
 ### Setup for Xmonad
