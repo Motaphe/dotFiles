@@ -19,7 +19,7 @@ function configure_displays() {
     xrandr --output $edp --off --output $hdmi --primary --mode 2560x1440 --rate 144
   elif [ -n "$hdmi" ] && [ -n "$dp" ]; then
     # Both HDMI and DP, turn on HDMI and DP and turn off eDP
-    xrandr --output $edp --off --output $dp --mode 1920x1080 --rate 165 --pos 2560x0 --rotate right --output $hdmi --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal
+    xrandr --output $edp --off --output $dp --mode 1920x1080 --rate 165 --pos 2560x0 --rotate left --output $hdmi --primary --mode 2560x1440 --rate 144 --pos 0x240 --rotate normal
   else
     # DP only, turn on DP and turn off eDP
     xrandr --output $edp --off --output $dp --auto --primary
@@ -28,4 +28,8 @@ function configure_displays() {
 
 # Set multi-display configuration based on detected outputs
 configure_displays "$EDP_OUTPUT" "$HDMI_OUTPUT" "$DP_OUTPUT"
+
+
+
+
 
