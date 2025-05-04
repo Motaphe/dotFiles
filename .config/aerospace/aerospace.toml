@@ -1,15 +1,13 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
-
-# You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
 
-# You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+    #'exec-and-forget ~/Applications/lan-mouse --daemon'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -37,6 +35,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -60,8 +59,8 @@ automatically-unhide-macos-hidden-apps = false
     inner.horizontal = 10
     inner.vertical =   10
     outer.left =       10
-    outer.bottom =     10
-    outer.top =        10
+    outer.bottom =     15
+    outer.top =        15
     outer.right =      10
 
 # 'main' binding mode declaration
@@ -98,6 +97,7 @@ automatically-unhide-macos-hidden-apps = false
 
     # Custom Keybindings
     alt-enter = 'exec-and-forget open -a /Applications/Alacritty.app'
+    alt-shift-f = 'fullscreen'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
@@ -128,6 +128,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-6 = 'workspace 6'
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -138,6 +139,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-6 = 'move-node-to-workspace 6'
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -148,14 +150,15 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-semicolon = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-    1 = 'main'
-    2 = 'main'
-    3 = 'main'
-    4 = 'main'
-    5 = 'main'
-    6 = ['secondary', 'main']
-    7 = ['secondary', 'main']
-    8 = ['secondary', 'main']
+    1 = 'dell'
+    2 = 'dell'
+    3 = 'dell'
+    4 = 'benq'
+    5 = 'benq'
+    6 = 'kyy'
+    7 = 'kyy'
+    8 = 'kyy'
+    9 = 'kyy'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -176,3 +179,55 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+# apps to automatically start in floating mode
+[[on-window-detected]]
+if.app-name-regex-substring = 'finder|preview|notes|cisco|appcleaner'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace 7"
+
+[[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+run = "move-node-to-workspace 7"
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace 8"
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace 8"
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = "move-node-to-workspace 8"
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace 9"
+
+
+
