@@ -6,7 +6,6 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
     'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
-    #'exec-and-forget ~/Applications/lan-mouse --daemon'
 ]
 
 # Start AeroSpace at login
@@ -34,8 +33,8 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-#on-focus-changed = "move-mouse window-lazy-center"
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -56,12 +55,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 10
-    inner.vertical =   10
-    outer.left =       10
-    outer.bottom =     15
+    inner.horizontal = 15
+    inner.vertical =   15
+    outer.left =       15
+    outer.bottom =     [{ monitor.benq = 20 }, 15]
     outer.top =        15
-    outer.right =      10
+    outer.right =      15
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -96,7 +95,7 @@ automatically-unhide-macos-hidden-apps = false
     # '''
 
     # Custom Keybindings
-    alt-enter = 'exec-and-forget open -a /Applications/Alacritty.app'
+    alt-enter = 'exec-and-forget open -a WezTerm'
     alt-shift-f = 'fullscreen'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
