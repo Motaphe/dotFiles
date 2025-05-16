@@ -33,8 +33,8 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = "move-mouse window-lazy-center"
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -95,7 +95,7 @@ automatically-unhide-macos-hidden-apps = false
     # '''
 
     # Custom Keybindings
-    alt-enter = 'exec-and-forget open -a WezTerm'
+    alt-enter = 'exec-and-forget open -a Alacritty'
     alt-shift-f = 'fullscreen'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
@@ -189,7 +189,7 @@ if.app-id = 'com.microsoft.VSCode'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
+if.app-id = 'app.zen-browser.zen'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
@@ -223,10 +223,6 @@ run = "move-node-to-workspace 8"
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = "move-node-to-workspace 8"
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 9"
 
 
 
