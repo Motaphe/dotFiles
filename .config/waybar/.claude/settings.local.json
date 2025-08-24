@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/suz/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
