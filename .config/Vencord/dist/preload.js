@@ -1,4 +1,4 @@
-// Vencord c7e799e
+// Vencord f356f64
 // Standalone: true
 // Platform: Universal
 // Updater Disabled: false
